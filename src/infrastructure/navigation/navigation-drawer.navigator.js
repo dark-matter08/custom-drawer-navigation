@@ -103,7 +103,7 @@ export const DrawerNavigator = () => {
     <View style={styles.container}>
       <Drawer.Navigator
         screenOptions={{
-          // headerShown: false,
+          headerShown: false,
           drawerType: 'slide',
           overlayColor: 'transparent',
           drawerStyle: styles.drawerStyle,
