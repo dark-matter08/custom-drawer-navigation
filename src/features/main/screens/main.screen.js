@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {AnimatedScreen} from '../../../components/animations/screen.animated';
 import Animated from 'react-native-reanimated';
 import {useDrawerProgress, useDrawerStatus} from '@react-navigation/drawer';
 
 export const MainScreen = ({navigation}) => {
+  // const progress = useDrawerProgress();
+  const [progress, setProgress] = useState(new Animated.Value(0));
   const status = useDrawerStatus();
-  let progress;
-  if (navigation.getState().history[1]) {
-    progress = 1;
+  // let progress;
+  if (status === 'open') {
+    setProgress(1);
   } else {
-    progress = 0;
+    setProgress(0);
   }
   console.log(status);
 
@@ -28,6 +30,7 @@ export const MainScreen = ({navigation}) => {
   const animatedStyle = {
     borderRadius,
     transform: [{scale}],
+    transitionDuration: '2s',
   };
 
   return (
