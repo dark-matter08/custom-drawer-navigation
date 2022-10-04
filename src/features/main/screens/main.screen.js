@@ -6,13 +6,13 @@ import {useDrawerProgress, useDrawerStatus} from '@react-navigation/drawer';
 
 export const MainScreen = ({navigation}) => {
   // const progress = useDrawerProgress();
-  const [progress, setProgress] = useState(new Animated.Value(0));
+  // const [progress, setProgress] = useState(new Animated.Value(0));
   const status = useDrawerStatus();
-  // let progress;
+  let progress = new Animated.Value(0);
   if (status === 'open') {
-    setProgress(1);
+    progress = 1;
   } else {
-    setProgress(0);
+    progress = 0;
   }
   console.log(status);
 
@@ -30,7 +30,7 @@ export const MainScreen = ({navigation}) => {
   const animatedStyle = {
     borderRadius,
     transform: [{scale}],
-    transitionDuration: '2s',
+    transitionDuration: 500,
   };
 
   return (
